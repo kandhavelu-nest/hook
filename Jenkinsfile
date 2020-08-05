@@ -3,7 +3,7 @@ agent any
     stages {
         stage('Test') {
             steps {
-                sh 'echo 123'
+                sh 'echo 1234'
             }
         }
     }
