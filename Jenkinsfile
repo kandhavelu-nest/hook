@@ -6,7 +6,7 @@ agent any
         stage('Test') {
                   when {
                 expression {
-                    result = sh (script: "git log -1 --pretty=%B | grep '\\[run\\]'", returnStatus: true) 
+                    result = sh (script: "git log -1 --pretty=%B | grep '\\[run\\]'") 
 		    return result
                 }
 		beforeAgent true
