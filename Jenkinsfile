@@ -6,8 +6,8 @@ agent any
         stage('Test') {
                   when {
                 expression {
-                    commit_message=sh(script:git log -1 --pretty=%B)
-                    return (commit_message   ==~ /(run)/)
+		    last_commit_message =  sh(script: 'git log -1 --pretty=%B')
+                    return (last_commit_message   == 'run')
                 }
 		beforeAgent true
             }
