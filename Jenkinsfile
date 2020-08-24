@@ -26,9 +26,11 @@ def postProcess() {
 }
 
 pipeline {
+agent any
   stages {
     stage('prepare') { steps { ciSkip action: 'check' } }
     // other stages here ...
   }
   post { always { ciSkip action: 'postProcess' } }
+
 }
