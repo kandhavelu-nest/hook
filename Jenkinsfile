@@ -5,12 +5,9 @@ agent any
        
         stage('Test') {
 		environment {
-                 result = sh (script: "git log -1 --pretty=%B" , returnStatus: true)
+                 result = sh (script: "git log -1 " , returnStatus: true)
                  }
-                 when {
-                expression { $result ==~ /(run)/ }
-	     beforeAgent true
-            }
+                
             steps {               
                 sh """
 		echo $result
