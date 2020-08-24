@@ -4,10 +4,12 @@ agent any
         stages {
        
         stage('Test') {
+		environment {
+                 result = sh (script: "git log -1 --pretty=%B | grep '\\[run\\]'", returnStatus: true) 
+                 }
                   when {
                 expression {
-                    result = sh (script: "git log -1 --pretty=%B | grep '\\[run\\]'") 
-		    return result
+                   "${result}" == "1"
                 }
 		beforeAgent true
             }
