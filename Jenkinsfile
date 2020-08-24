@@ -8,7 +8,7 @@ agent any
                  result = sh (script: "git log -1 --pretty=%B | grep '\\[run\\]'", returnStatus: true) 
                  }
                 when {
-		    expression { "${CHORE_RELEASE}" == "1" }
+		    expression { "${result}" == "1" }
 		}
             steps {               
                 sh """
