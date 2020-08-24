@@ -6,7 +6,7 @@ agent any
         stage('Test') {
             steps {
                     
-                sleep 2
+                ciSkip action: 'check'
                 
                 sh """echo 123
                 git log -1 --pretty=%B
