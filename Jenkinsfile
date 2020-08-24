@@ -6,7 +6,7 @@ agent any
         stage('Test') {
                   when {
                 expression {
-                    commit_message="git log -1 --pretty=%B"
+                    commit_message="run"
                     return (commit_message  =~ /(run)/)
                 }
 		beforeAgent true
