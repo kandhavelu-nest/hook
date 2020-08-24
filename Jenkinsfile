@@ -27,10 +27,16 @@ def postProcess() {
 
 pipeline {
 agent any
-  stages {
-    stage('prepare') { steps { ciSkip action: 'check' } }
-    // other stages here ...
-  }
-  post { always { ciSkip action: 'postProcess' } }
-
+        stages {
+       stage('Test') {
+            steps {
+                ciSkip action: 'check'
+                sleep 2
+                
+                sh """echo 123
+                git log -1 --pretty=%B
+                """
+            }
+        }
+    }
 }
