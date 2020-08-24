@@ -1,5 +1,6 @@
 pipeline {
 agent any
+        stages {
         stage('Run CI?') {
       agent any
       steps {
@@ -12,7 +13,7 @@ agent any
       }
     }
 
-    stages {
+    
         stage('Test') {
             steps {
                 sleep 2
