@@ -9,6 +9,7 @@ agent any
                  }
                 when {
 		    expression { "${result}" == "1" }
+		   beforeAgent true
 		}
             steps {               
                 sh """
