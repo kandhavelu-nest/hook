@@ -5,7 +5,7 @@ agent any
       agent any
       steps {
         script {
-          sh """ git log """ 
+          sh """ git log -2 """ 
         }
       }
     }
