@@ -1,19 +1,34 @@
+// vars/ciSkip.groovy
+
+def call(Map args) {
+    if (args.action == 'check') {
+        return check()
+    }
+    if (args.action == 'postProcess') {
+        return postProcess()
+    }
+    error 'ciSkip has been called without valid arguments'
+}
+
+def check() {
+    env.CI_SKIP = "false"
+    result = sh (script: "git log -1 | grep '.*\\[ci skip\\].*'", returnStatus: true)
+    if (result == 0) {
+        env.CI_SKIP = "true"
+        error "'[ci skip]' found in git commit message. Aborting."
+    }
+}
+
+def postProcess() {
+    if (env.CI_SKIP == "true") {
+        currentBuild.result = 'NOT_BUILT'
+    }
+}
+
 pipeline {
-agent any
-    stages {
-        stage('git') {
-                         steps {
-        git url:'git@github.com:kandhavelu-nest/hook.git', branch:"${BRANCH_NAME}", credentialsId: 'web-app-ssh-key'
-      }
-        }
-    }
-    stages {
-        stage('Test') {
-                         steps {
-        sh """
-        ls -la
-        """
-      }
-        }
-    }
+  stages {
+    stage('prepare') { steps { ciSkip action: 'check' } }
+    // other stages here ...
+  }
+  post { always { ciSkip action: 'postProcess' } }
 }
