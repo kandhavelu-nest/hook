@@ -10,7 +10,7 @@ agent any
                  }
 		when {
                 expression {
-                    return GIT_COMMIT_MSG
+                   return sh (script: 'git log -1 --pretty=%B', returnStdout: true).trim().contains('run')
                 }
 		beforeAgent true
             }
