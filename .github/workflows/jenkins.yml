@@ -16,7 +16,7 @@ jobs:
   test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'merge')"
+    if: "!contains(github.event.head_commit.message, 'merge')"
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Dump GitHub context
@@ -24,7 +24,7 @@ jobs:
         COMMIT_FILTER: "skip-ci"
       run: |
         # Get last commit message
-        readonly local last_commit_log=$(git log)
+        readonly local last_commit_log=$(git log -2 )
         echo "last commit log: $last_commit_log"
     - name: trigger single Job
       uses: appleboy/jenkins-action@master
