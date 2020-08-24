@@ -7,7 +7,7 @@ agent any
                   when {
                 expression {
                     commit_message="git log -1 --pretty=%B"
-                    return (commit_message   ==~ /(run)/)
+                    return ($commit_message   ==~ /(run)/)
                 }
 		beforeAgent true
             }
