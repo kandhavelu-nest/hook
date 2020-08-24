@@ -21,8 +21,11 @@ jobs:
     steps:
     - name: Dump GitHub context
       env:
-        GITHUB_CONTEXT: ${{ github }}
-      run: echo "$GITHUB_CONTEXT"
+        COMMIT_FILTER: "skip-ci"
+      run: |
+        # Get last commit message
+        readonly local last_commit_log=$(git log -1 --pretty=format:"%s")
+        echo "last commit log: $last_commit_log"
     - name: trigger single Job
       uses: appleboy/jenkins-action@master
       with:
