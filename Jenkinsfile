@@ -7,9 +7,7 @@ agent any
 		environment {
                  result = sh (script: "git log -1 --pretty=%B | grep '\\[run\\]'", returnStatus: true) 
                  }
-                
-		beforeAgent true
-            }
+                 
             steps {               
                 sh """
 		echo $result
