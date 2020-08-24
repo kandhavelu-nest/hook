@@ -14,8 +14,7 @@ agent any
                
             steps {               
                 sh """
-		echo $result
-		echo $GIT_COMMIT_MSG
+		echo "123"
                 """
             }
         }
