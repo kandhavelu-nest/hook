@@ -12,7 +12,8 @@ agent any
 		beforeAgent true
             }
             steps {               
-                sh """echo 123
+                sh """
+		echo "123"
                 git log -1 --pretty=%B
                 """
             }
