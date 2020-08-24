@@ -22,7 +22,6 @@ def postProcess() {
         currentBuild.result = 'NOT_BUILT'
     }
 }
-
 pipeline {
 agent any
         stages {
