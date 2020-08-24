@@ -5,7 +5,7 @@ agent any
        
         stage('Test') {
 		environment {
-                 result = sh (script: "git log -1 --pretty=%B|grep '.*\\[ci skip\\].*'",returnStatus: true)
+                 result = sh (script: "git log -1 --pretty=%B|grep '.*\\[run\\].*'",returnStatus: true)
                  }
                
             steps {               
