@@ -8,7 +8,7 @@ agent any
                 expression {
 		    last_commit_message = sh(script: 'git log -1 --pretty=%B')
 		    
-                    return   sh(script: 'git log -1 --pretty=%B').contains('run')
+                    return   sh(script: 'echo run').contains('run')
                 }
 		beforeAgent true
             }
