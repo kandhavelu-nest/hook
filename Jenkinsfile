@@ -7,7 +7,7 @@ agent any
 		environment {
                  result = sh (script: "git log -1 --pretty=%B|grep '.*\\[ci skip\\].*'",returnStatus: true)
                  }
-                
+               
             steps {               
                 sh """
 		echo $result
