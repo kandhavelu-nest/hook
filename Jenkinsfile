@@ -6,7 +6,7 @@ agent any
         stage('Test') {
                   when {
                 expression {
-		    last_commit_message = sh(script: 'git log -1 --pretty=%B')
+		    
                     result = sh (script: "git log -1 | grep '\\[run\\]'", returnStatus: true) 
 		    return result
                 }
