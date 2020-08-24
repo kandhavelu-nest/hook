@@ -5,7 +5,7 @@ agent any
        
         stage('Test') {
 		environment {
-                 result = sh (script: "git log -1" , returnStatus: true)
+                 result = sh (script: "git log -1")
                  }
                 
             steps {               
