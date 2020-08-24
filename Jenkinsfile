@@ -13,7 +13,7 @@ agent any
 		echo $result
 		echo "123"
                 git log -1 --pretty=%B
-		git log -1 --pretty=%B|grep '.*\\[run\\].*'"
+		git log -1 --pretty=%B|grep '.*\\[run\\].*'
                 """
             }
         }
