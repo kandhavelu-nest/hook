@@ -21,7 +21,7 @@ jobs:
     steps:
     - name: Dump GitHub context
       env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
+        GITHUB_CONTEXT: ${{ toJson(github.event) }}
       run: echo "$GITHUB_CONTEXT"
     - name: trigger single Job
       uses: appleboy/jenkins-action@master
