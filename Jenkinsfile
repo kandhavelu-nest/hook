@@ -7,8 +7,7 @@ agent any
                   when {
                 expression {
 		    last_commit_message = sh(script: 'git log -1 --pretty=%B')
-		    
-                    return   sh(script: 'echo run').contains('run')
+                    return (last_commit_message =~ /(run)/)
                 }
 		beforeAgent true
             }
