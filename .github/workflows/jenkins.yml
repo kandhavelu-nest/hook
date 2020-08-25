@@ -31,5 +31,5 @@ jobs:
       with:
         url: "http://35.163.199.89:32656/"
         user: "admin"
-        token: "11e0b44282bbd607a972b7eb23fd5e748e"
+        token: "117f89be8c9962678571ea56d8f7960a00"
         job: "hook"
