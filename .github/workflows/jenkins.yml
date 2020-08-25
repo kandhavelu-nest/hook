@@ -29,7 +29,7 @@ jobs:
     - name: trigger single Job
       uses: appleboy/jenkins-action@master
       with:
-        url: "http://54.202.108.130:32656/"
+        url: "http://35.163.199.89:32656/"
         user: "admin"
-        token: ${{ secrets.JENKINS_TOKEN }}
+        token: "11e0b44282bbd607a972b7eb23fd5e748e"
         job: "hook"
