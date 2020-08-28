@@ -17,7 +17,7 @@ agent any
                 echo \$BRANCH_NAME
 		echo "123456789101112131415161718192021222324252627282930"
                 """
-                hangoutsNotify message: "This message is from a pipeline!",token: "e-1gx-GTeu6d3_98z0CBwdWjq",threadByJob: false
+                hangoutsNotify message: "This message is from a pipeline!",token: "chat-bot",threadByJob: false
             } 
         }
     }
