@@ -18,11 +18,12 @@ agent any
 		echo "123456789101112131415161718"
                 """
             }
+	}
 		 stage("preserve build user") {
             wrap([$class: 'BuildUser']) {
                 GET_BUILD_USER = sh ( script: 'echo "${BUILD_USER}"', returnStdout: true).trim()
             }
         }
-        }
+        
     }
 }
