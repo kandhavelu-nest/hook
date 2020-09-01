@@ -19,11 +19,7 @@ agent any
                 """
             }
 	}
-		 stage("preserve build user") {
-            wrap([$class: 'BuildUser']) {
-                GET_BUILD_USER = sh ( script: 'echo "${BUILD_USER}"', returnStdout: true).trim()
-            }
-        }
+
         
     }
 }
