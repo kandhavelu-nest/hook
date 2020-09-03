@@ -10,10 +10,11 @@ metadata:
 labels:
   component: ci
 spec:
-  # Use service account that can deploy to all namespaces
+  nodeSelector:
+    d-type: na-node-group
   serviceAccountName: jenkins
   containers:
-  - name: maven
+  - name: ubuntu
     image: maven:latest
     command:
     - cat
